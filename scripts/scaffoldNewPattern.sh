@@ -13,9 +13,7 @@ touch $folderName/$index.ts
 
 # Add some basic boilerplate
 cat > $folderName/$pageComponent.tsx << ENDOFFILE
-import { FC } from "react"
-
-const $pageComponent: FC = () => {
+export default function $pageComponent(): JSX.Element {
   return (
 
   )
@@ -26,9 +24,7 @@ export default $pageComponent
 ENDOFFILE
 
 cat > $folderName/$functionComponent.tsx << ENDOFFILE
-import { FC } from "react"
-
-export default function $functionComponent(): FC {
+export default function $functionComponent(): JSX.Element {
   return (
 
   )
