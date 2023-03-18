@@ -1,24 +1,26 @@
-import { RouteObject } from "react-router-dom";
-import Pages from "../pages";
+import React, { RouteObject } from 'react-router-dom';
+import Pages from '../pages';
 
-export type RouterGroupType =
-  | "Creational"
-  | "Structural"
-  | "Behavioural"
-  | "Ungrouped";
+export type RouterGroupType = 'Components' | 'Ungrouped';
 
 export type RouteType = Required<
-  Pick<RouteObject, "path" | "element" | "id"> & {
+  Pick<RouteObject, 'path' | 'element' | 'id'> & {
     routerGroup: RouterGroupType;
   }
 >;
 
 export const ROUTES: RouteType[] = [
   {
-    path: "/",
+    path: '/',
     element: <Pages.HomePage />,
-    id: "Home",
-    routerGroup: "Ungrouped",
+    id: 'Home',
+    routerGroup: 'Ungrouped',
+  },
+  {
+    path: '/fragment',
+    element: <Pages.FragmentPage />,
+    id: 'Fragment',
+    routerGroup: 'Components',
   },
 ];
 

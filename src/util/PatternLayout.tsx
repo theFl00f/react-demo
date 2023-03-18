@@ -1,16 +1,14 @@
-import { FC, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 interface Props {
   children: ReactElement;
 }
 
-const PatternLayout: FC<Props> = ({ children }) => {
+export default function PatternLayout({ children }: Props): JSX.Element {
   return (
     <div>
       <a href="/">&#11013; Back</a>
       {children}
     </div>
   );
-};
-
-export default PatternLayout;
+}

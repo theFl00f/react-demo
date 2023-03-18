@@ -1,12 +1,10 @@
-import { FC } from 'react';
+import React from 'react';
 import { RouteObject } from 'react-router-dom';
 
 interface Props {
   route: RouteObject;
 }
 
-const HomePageLink: FC<Props> = ({ route }) => {
+export default function HomePageLink({ route }: Props): JSX.Element {
   return <a href={route.path}>{route.id}</a>;
-};
-
-export default HomePageLink;
+}
