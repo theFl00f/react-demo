@@ -1,42 +1,29 @@
 folderName=src/pages/"$1"Page
-pageComponent="$1"Page
-classComponent=Class"$1"
-functionComponent=Functional"$1"
+page="$1"Page
+model="$1"Model
 index=index
 
 # Make folder + files
 mkdir -p -v $folderName;
-touch $folderName/$pageComponent.tsx
-touch $folderName/$classComponent.tsx
-touch $folderName/$functionComponent.tsx
+touch $folderName/$page.tsx
+touch $folderName/$model.tsx
 touch $folderName/$index.ts
 
 # Add some basic boilerplate
-cat > $folderName/$pageComponent.tsx << ENDOFFILE
-export default function $pageComponent(): JSX.Element {
-  return (
+cat > $folderName/$page.tsx << ENDOFFILE
+import $model from './$model'
 
-  )
+export default function $page(): JSX.Element {
+  return <$model />
 }
-
-export default $pageComponent
 
 ENDOFFILE
 
-cat > $folderName/$functionComponent.tsx << ENDOFFILE
-export default function $functionComponent(): JSX.Element {
-  return (
 
-  )
-}
-
-
-ENDOFFILE
-
-cat > $folderName/$classComponent.tsx << ENDOFFILE
+cat > $folderName/$model.tsx << ENDOFFILE
 import { Component } from "react"
 
-export default class $classComponent extends Component {
+export default class $model extends Component {
   render() {
     return (
 
@@ -47,6 +34,6 @@ export default class $classComponent extends Component {
 ENDOFFILE
 
 cat > $folderName/$index.ts << ENDOFFILE
-export { default as $pageComponent } from './$pageComponent'
+export { default as $page } from './$page'
 
 ENDOFFILE
