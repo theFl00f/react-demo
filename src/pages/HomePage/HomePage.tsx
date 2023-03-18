@@ -1,9 +1,9 @@
-import { groupBy, toPairs } from "lodash";
-import { FC } from "react";
-import { ROUTES } from "../../router";
-import HomePageLink from "./HomePageLink";
+import { groupBy, toPairs } from 'lodash';
+import React from 'react';
+import { ROUTES } from '../../router';
+import HomePageLink from './HomePageLink';
 
-const HomePage: FC = () => {
+export default function HomePage(): JSX.Element {
   const groupedRoutes = toPairs(groupBy(ROUTES, (route) => route.routerGroup));
 
   return (
@@ -22,6 +22,4 @@ const HomePage: FC = () => {
       ))}
     </ul>
   );
-};
-
-export default HomePage;
+}
