@@ -1,0 +1,3 @@
+interface ExampleProps {
+  handleRender: ProfilerOnRenderCallback;
+}
