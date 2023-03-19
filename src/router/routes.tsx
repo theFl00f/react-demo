@@ -1,5 +1,6 @@
-import React, { RouteObject } from 'react-router-dom';
+import { RouteObject } from 'react-router-dom';
 import Pages from '../pages';
+import { PatternLayout } from '../util';
 
 export type RouterGroupType = 'Components' | 'Ungrouped';
 
@@ -18,8 +19,22 @@ export const ROUTES: RouteType[] = [
   },
   {
     path: '/fragment',
-    element: <Pages.FragmentPage />,
+    element: (
+      <PatternLayout>
+        <Pages.FragmentPage />
+      </PatternLayout>
+    ),
     id: 'Fragment',
+    routerGroup: 'Components',
+  },
+  {
+    path: '/profiler',
+    element: (
+      <PatternLayout>
+        <Pages.ProfilerPage />
+      </PatternLayout>
+    ),
+    id: 'Profiler',
     routerGroup: 'Components',
   },
 ];
