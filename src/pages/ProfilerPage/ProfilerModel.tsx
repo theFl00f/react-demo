@@ -1,6 +1,6 @@
-import { ProfilerOnRenderCallback } from 'react';
-import { renderMethodList } from '../../util';
-import { RerenderExample } from './ReRenderExample';
+import { FC, ProfilerOnRenderCallback } from 'react';
+import { ComponentList } from '../../util';
+import { RerenderExample } from './RerenderExample';
 import { SimpleExample } from './SimpleExample';
 
 const handleRender: ProfilerOnRenderCallback = (
@@ -23,12 +23,22 @@ const handleRender: ProfilerOnRenderCallback = (
   });
 };
 
-export default function ProfilerModel(): JSX.Element {
-  const simpleExample = () => <SimpleExample handleRender={handleRender} />;
-  const rerenderExample = () => <RerenderExample handleRender={handleRender} />;
+const ProfilerModel: FC = () => {
+  return (
+    <ComponentList
+      title="Profiler"
+      components={[
+        {
+          name: SimpleExample.name,
+          element: <SimpleExample handleRender={handleRender} />,
+        },
+        {
+          name: RerenderExample.name,
+          element: <RerenderExample handleRender={handleRender} />,
+        },
+      ]}
+    />
+  );
+};
 
-  return renderMethodList({
-    methods: [simpleExample, rerenderExample],
-    title: 'Profiler',
-  });
-}
+export default ProfilerModel;

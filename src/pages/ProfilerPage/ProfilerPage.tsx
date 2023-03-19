@@ -1,5 +1,8 @@
+import { FC } from 'react';
 import ProfilerModel from './ProfilerModel';
 
-export default function ProfilerPage(): JSX.Element {
+const ProfilerPage: FC = () => {
   return <ProfilerModel />;
-}
+};
+
+export default ProfilerPage;
