@@ -1,5 +1,8 @@
+import { FC } from 'react';
 import FragmentModel from './FragmentModel';
 
-export default function FragmentPage(): JSX.Element {
+const FragmentPage: FC = () => {
   return <FragmentModel />;
-}
+};
+
+export default FragmentPage;

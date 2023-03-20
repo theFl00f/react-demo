@@ -11,29 +11,29 @@ touch $folderName/$index.ts
 
 # Add some basic boilerplate
 cat > $folderName/$page.tsx << ENDOFFILE
+import { FC } from 'react'
 import $model from './$model'
 
-export default function $page(): JSX.Element {
+const $page: FC =() {
   return <$model />
 }
 
+export default $page
 ENDOFFILE
 
 
 cat > $folderName/$model.tsx << ENDOFFILE
-import { Component } from "react"
+import { FC } from 'react'
 
-export default class $model extends Component {
-  render() {
-    return (
+const $model: FC = () => {
+  return (
 
-    )
-  }
+  )
 }
 
+export default $model
 ENDOFFILE
 
 cat > $folderName/$index.ts << ENDOFFILE
 export { default as $page } from './$page'
-
 ENDOFFILE
